@@ -20,13 +20,13 @@ function App() {
     }, 250)
 
     return () => clearTimeout(timeout)
-  }, [html, css, js])
+  }, [html, css, js]) //when there are changes in HTML, CSS and JS
 
   return (
     <>
       <div className="pane top-pane">
         <Editor
-          language="xml"
+          language="xml"  //lang which it reads
           displayName="HTML"
           value={html}
           onChange={setHtml}
@@ -48,8 +48,8 @@ function App() {
         <iframe
           srcDoc={srcDoc}
           title="output"
-          sandbox="allow-scripts"
-          frameBorder="0"
+          sandbox="allow-scripts" //allows only scripts
+          frameBorder="0" //No Border
           width="100%"
           height="100%"
         />

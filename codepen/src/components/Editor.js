@@ -1,10 +1,10 @@
 import React, { useState } from 'react'
 import 'codemirror/lib/codemirror.css'
-import 'codemirror/theme/material.css'
-import 'codemirror/mode/xml/xml'
-import 'codemirror/mode/javascript/javascript'
+import 'codemirror/theme/material.css'  // base css styles
+import 'codemirror/mode/xml/xml'  //for HTML
+import 'codemirror/mode/javascript/javascript'  //for JavaScript
 import 'codemirror/mode/css/css'
-import { Controlled as ControlledEditor } from 'react-codemirror2'
+import { Controlled as ControlledEditor } from 'react-codemirror2'  //importing text editor
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCompressAlt, faExpandAlt } from '@fortawesome/free-solid-svg-icons'
 
@@ -21,7 +21,7 @@ export default function Editor(props) {
     onChange(value)
   }
 
-  return (
+  return (  //if open is true, do nothing, if false, give option to collapse
     <div className={`editor-container ${open ? '' : 'collapsed'}`}>
       <div className="editor-title">
         {displayName}
@@ -34,14 +34,14 @@ export default function Editor(props) {
         </button>
       </div>
       <ControlledEditor
-        onBeforeChange={handleChange}
+        onBeforeChange={handleChange} //works as onChange
         value={value}
         className="code-mirror-wrapper"
         options={{
           lineWrapping: true,
           lint: true,
           mode: language,
-          theme: 'material',
+          theme: 'material',  //for dark theme
           lineNumbers: true
         }}
       />
